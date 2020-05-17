@@ -1,19 +1,11 @@
 class Api::V1::BooksController < ApplicationController
   def index
-    data = {
-      titles: [
-        { name: "book 1" },
-        { name: "new BOOK" },
-      ]
-    }
-
-    if Rails.env.development?
-      data[:_debug] = {
-        params: params,
-        is_stub: true,
-      }
+    books = Book.all.map do |b|
+      b.as_json.compact.deep_transform_keys { |k| k.camelize(:lower) }
     end
 
-    render json: data
+    render json: {
+      titles: books
+    }
   end
 end
