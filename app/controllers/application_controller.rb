@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::API
   def hello
-    render html: "hello world"
+    data = {
+      titles: [
+        { name: "foo" },
+        { name: "bar" },
+      ]
+    }
+    render json: data
   end
 end
