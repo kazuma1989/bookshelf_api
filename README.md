@@ -1,24 +1,16 @@
-# README
+# API - Book shelf note app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 一覧表示
 
-Things you may want to cover:
+    GET https://bookshelfnote-api.herokuapp.com/api/v1/books
 
-* Ruby version
+### 新規追加
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    POST https://bookshelfnote-api.herokuapp.com/api/v1/books
+    Content-Type: application/json
+    
+    {
+      "name": "アヒルと鴨のコインロッカー",
+      "author": "伊坂幸太郎",
+      "url": "http://b.jp"
+    }
