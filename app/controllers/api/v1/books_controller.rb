@@ -7,6 +7,13 @@ class Api::V1::BooksController < ApplicationController
       ]
     }
 
+    if Rails.env.development?
+      data[:_debug] = {
+        params: params,
+        is_stub: true,
+      }
+    end
+
     render json: data
   end
 end
